@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: CC0-1.0
+# Written in 2018-2019 by Peter A. Bigot
+
+option('googletest',
+       type: 'boolean',
+       value: true,
+       description: 'Attempt to build and enable GoogleTest')
+
+# support means things that help people use the library.
+# This might be disabled when used as a subproject.
+option('support',
+       type: 'boolean',
+       value: true,
+       description: 'Attempt to build examples, documentation, etc.')

@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: CC0-1.0
+# All object files
+/*.o
+# Code coverage outputs
+/*.gcno
+/*.gcda
+# Test logs and summaries
+*.log
+*.trs
+# The symlinks to the Google test/mock roll-up sources
+/gtest-all.cc
+/gmock-all.cc
+# TESTS
+/gt_byteorder
+/gt_cli
+/gt_codec
+/gt_common
+/gt_container
+/gt_crc
+/gt_fsutils
+/gt_ini_file
+/gt_iterator
+/gt_netutils
+/gt_parsing
+/gt_progopt
+/gt_statistics
+/gt_stub
+# SAMPLES
+/cli
+/ex_chrono_stats
+/hello
+/perf_hex

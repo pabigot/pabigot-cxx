@@ -1,0 +1,89 @@
+/* SPDX-License-Identifier: Apache-2.0 */
+/* Copyright 2014-2019 Peter A. Bigot */
+
+/** @file
+ * General-use material that applies to all of pabigot.
+ *
+ * This should be included in every library header that does not include any
+ * other library headers.
+ */
+
+#ifndef PABIGOT_COMMON_HPP
+#define PABIGOT_COMMON_HPP
+#pragma once
+
+/** Defined to preprocessor true if built with `fullcpp` support.
+ *
+ * If false features that depend on exceptions, runtime type inference,
+ * threads, and other heavy-weight capabilities are not present in the
+ * installation. */
+#define PABIGOT_OPTION_FULLCPP @OPTION_FULLCPP@
+
+#if (__cplusplus - 0) < 201703L
+#error This package requires C++17 or later
+#endif /* pre-C++17 */
+
+#include <utility>
+
+/** The version identifier for this library as a text string.
+ *
+ * Package versioning follows [semver](https://semver.org/).  Pre-release
+ * versions use a tag of the form `dev.YYYYMMDDXX`.  The macros
+ * #PABIGOT_VERSION_RELEASE and #PABIGOT_VERSION_DEVEL may be used to
+ * distinguish release and pre-release versions. */
+#define PABIGOT_VERSION "@VERSION@"
+
+/** Major component of version number.
+ *
+ * @see PABIGOT_VERSION_RELEASE
+ * @see PABIGOT_VERSION_DEVEL
+ */
+#define PABIGOT_VERSION_MAJOR @VERSION_MAJOR@
+
+/** Minor component of version number. */
+#define PABIGOT_VERSION_MINOR @VERSION_MINOR@
+
+/** Patch component of version number. */
+#define PABIGOT_VERSION_PATCH @VERSION_PATCH@
+
+/** @def PABIGOT_VERSION_RELEASE
+ *
+ * This macro is defined to a preprocessor true value when the package is a
+ * release version.  It is undefined when the package is a development version.
+ *
+ * @def PABIGOT_VERSION_DEVEL
+ *
+ * This macro is defined a monotonically non-decreasing integral value during a
+ * development series leading to a new release.  It is undefined when the
+ * package is a release version.
+ *
+ * The value is modified during a development series only when a change is made
+ * that would trigger a [semver](https://semver.org/) major or minor version
+ * change.  The value should be of the form `YYYYMMDDXX` encoding the date of
+ * the change plus a two-digit monotonically increasing subfield. */
+#define PABIGOT_VERSION_@VERSION_RELEASE@ @VERSION_DEVEL@L
+
+#if (PABIGOT_DOXYGEN - 0)
+#ifndef PABIGOT_VERSION_RELEASE
+#define PABIGOT_VERSION_RELEASE 0L
+#endif
+#ifndef PABIGOT_VERSION_DEVEL
+#define PABIGOT_VERSION_DEVEL 0L
+#endif
+#endif // PABIGOT_DOXYGEN
+
+/** Root for all pabigot namespaces. */
+namespace pabigot {
+
+/** Namespace enclosing all material derived from external sources.
+ *
+ * Fragments of code that are not original to the author of this package and/or
+ * are distributed under a license other than the package license are exposed
+ * through individual source files that make the content provenance and
+ * licensing clear.  The material is then exposed through this namespace. */
+namespace external {
+} // ns external
+
+} // ns pabigot
+
+#endif /* PABIGOT_COMMON_HPP */

@@ -1,0 +1,51 @@
+After reviewing `Boost.Program_options
+<http://www.boost.org/doc/libs/1_55_0/doc/html/program_options.html>`_,
+a more sensible alternative is needed.
+
+Domain entities
+===============
+
+A class to hold a value and convert between its internal and text
+representations.  Call this an `option_value`.  This should be
+templatized on the value type and on a string type.  The value should be
+contained in the class; there is no need to reference an external
+variable.  The class should provide methods to convert from value to
+string and back.  A default value may be provided in the constructor.
+
+It is fair to default to stream encoding/decoding for conversion between
+values and strings.  It is not acceptable to only support that
+conversion.
+
+A wrapping abstraction to represent a sequence of values instances as a
+std::vector, assuming the value type is capable of being used as a type
+parameter to option_value.  String conversion should permit whitespace
+or other text separators (single char? string? regex?).  The resulting
+type should itself be substitutable as an option_value.
+
+A class that associates a key name, optional single-character
+identifier, and an option value.  Call this an `option`.  The type
+should be templatized on the option_value type; the instance holds the
+key string, key character, and documentation about the option.  DESIGNQ:
+Does the option own its option_value?  ANS: No.
+
+Functional Requirements
+=======================
+
+Some sort of utility to extract quoted strings would be useful, but this
+is not a priority.  Allow for it in the design.  Don't get distracted by
+implementing it.
+
+The ability to wrap an option to recognize operational mutations of the
+key string.  For example if --flag is an option that sets a bool value
+to true, --no-flag would set the bool value to false.  --enable-flag and
+--disable-flag might also work.  --with-option=value would set an option
+value, while --without-option would assign a distinct null (bottom)
+value.
+
+Option instances may accept zero (flag only) or one (value) parameter.
+When processing command line values, the parameter may be conjoined to
+the key with an equals in a single argument, or may appear as the next
+argument.  Missing parameters should be diagnosed.
+
+The ability to specify a default option to which trailing arguments are
+applied.

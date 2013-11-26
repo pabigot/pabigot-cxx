@@ -1,0 +1,35 @@
+# SPDX-License-Identifier: CC0-1.0
+PROJECT_NAME = @PROJECT@
+PROJECT_BRIEF = "C++ support classes"
+PROJECT_NUMBER = @VERSION@
+OUTPUT_DIRECTORY = @DOCDIR@
+STRIP_FROM_INC_PATH = include
+# Header support commands
+ALIASES += homepage="\par<b>Homepage\n"
+ALIASES += copyright_doc="Copyright 2013-2019 Peter A. Bigot"
+# Declaration support commands
+# Use "#if defined(@PROJECT_UC@_DOXYGEN)" when providing a stub declaration
+# to which documentation is attached.
+# Use "/* @cond DOXYGEN_EXCLUDE */ ... /* @endcond */" around the real
+# declarations.
+PREDEFINED += "@PROJECT_UC@_DOXYGEN"
+MACRO_EXPANSION = YES
+EXPAND_ONLY_PREDEF = YES
+TAB_SIZE = 2
+OPTIMIZE_OUTPUT_FOR_C = YES
+TYPEDEF_HIDES_STRUCT = NO
+BUILTIN_STL_SUPPORT = YES
+JAVADOC_AUTOBRIEF = YES
+GENERATE_TAGFILE = @DOCDIR@/@PROJECT@.tag
+GENERATE_LATEX = NO
+GENERATE_XML = NO
+ALPHABETICAL_INDEX = YES
+RECURSIVE = YES
+EXTRACT_STATIC = YES
+EXAMPLE_PATH = @TOP_SRCDIR@/examples/
+EXAMPLE_PATTERNS = *.h
+EXTENSION_MAPPING = inc=C
+FILE_PATTERNS = *.hpp *.inc *.dox
+INPUT = @TOP_SRCDIR@/doc/mainpage.dox \
+      @TOP_SRCDIR@/include/pabigot \
+      @TOP_BUILDDIR@/include/pabigot

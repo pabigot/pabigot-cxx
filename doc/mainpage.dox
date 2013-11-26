@@ -1,0 +1,10 @@
+/*!
+\mainpage C++ Support Classes that I find useful
+
+The `pabigot` namespace supplied by this package provides C++17 support classes
+for a variety of application domains, from embedded software to system daemons.
+
+Start with the @ref pabigot namespace.
+
+\copyright Copyright 2013-2019, Peter A. Bigot.  Licensed under [Apache-2.0](http://opensource.org/licenses/Apache-2.0).
+ */
