@@ -2,7 +2,7 @@
 # Written in 2018-2019 by Peter A. Bigot
 
 project('pabigot', ['cpp'],
-        version: '0.1.0',
+        version: '0.1.1-dev.20190312',
         default_options: [
           'cpp_std=c++17',
           'werror=true',
