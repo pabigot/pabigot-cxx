@@ -13,8 +13,8 @@ headers = [
   'container.hpp',
 ]
 
-subdir('external')
 subdir('ble')
+subdir('external')
 
 install_headers(headers,
                 subdir: 'pabigot')
