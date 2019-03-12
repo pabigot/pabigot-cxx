@@ -6,6 +6,16 @@ option('googletest',
        value: true,
        description: 'Attempt to build and enable GoogleTest')
 
+# fullcpp false excludes dependencies on:
+# * <memory>
+# * <exception>
+# * <chrono>
+# * virtual functions, dynamic_cast, runtime type inference
+# * <thread>
+option('fullcpp',
+        type: 'boolean',
+        value: 'true',
+        description: 'Enable features that require full C++ support')
 # support means things that help people use the library.
 # This might be disabled when used as a subproject.
 option('support',
