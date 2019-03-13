@@ -5,8 +5,8 @@ and later language versions.  It has some overlap with Boost in terms of
 functionality, but avoids Boost's tightly-coupled dependencies and need to
 support older language versions.
 
-Homepage: https://github.com/pabigot/pabigot-cxx
-Documentation: https://pabigot.github.io/pabigot-cxx/index.html
+* Homepage: https://github.com/pabigot/pabigot-cxx
+* Documentation: https://pabigot.github.io/pabigot-cxx/index.html
 
 ## Notes
 
